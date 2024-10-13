@@ -1,0 +1,43 @@
+body {
+  padding: 10px;
+}
+.container {
+  width: 590px;
+  padding: 36px;
+  margin: 50px auto;
+  border-width: 1px;
+  border-color: #f1f1f1;
+  border-style: solid;
+  border-radius: 10px;
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.container input {
+  width: 100%;
+  height: 48px;
+  border-width: 1px;
+  border-color: #f1f1f1;
+  border-style: solid;
+  border-radius: 5px;
+}
+form p {
+  text-align: left;
+}
+span {
+  color: red;
+}
+img {
+  vertical-align: middle;
+}
+.lupaPass {
+  color: #333333ad;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22.4px;
+  letter-spacing: 0.2px;
+  text-align: right;
+}
+.lupaPass a:link {
+  text-decoration: none;
+}

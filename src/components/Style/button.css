@@ -1,0 +1,23 @@
+button {
+  display: block;
+  width: 100%;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  margin: 5px auto;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22.4px;
+  letter-spacing: 0.2px;
+}
+.btnGreen {
+  color: white;
+  background-color: #3ecf4c;
+}
+.btnWhite {
+  color: #3ecf4c;
+  background-color: #e2fcd9cc;
+}
+.btnSSO {
+  color: #4a505c;
+}

@@ -1,0 +1,23 @@
+.header {
+  height: 400px;
+  color: white;
+  text-align: center;
+  background-color: black;
+  opacity: 80%;
+  padding: 82px 140px 64px;
+}
+.blk {
+  background-image: url("../../image/foto0.jpg");
+  background-size: cover;
+}
+.header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 52.8px;
+}
+.header p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22.4px;
+  letter-spacing: 0.2px;
+}
