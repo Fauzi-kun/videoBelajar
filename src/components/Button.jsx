@@ -1,4 +1,4 @@
-import "./Style/Button.css";
+import "./Style/button.css";
 import GoogleIcon from "../image/google-icon.png";
 
 const Button = ({ propUp, propDown, onClickUp, onClickDown }) => (
