@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import TopBar from "./pages/TopBar";
 
 import Regis from "./pages/regis/regis.jsx";
-import Login from "./pages/login/login.jsx";
+import Login from "./pages/login/index.jsx";
 import HomePage from "./pages/homePage/home.jsx";
 
 const router = createBrowserRouter([
