@@ -2,7 +2,7 @@ import "./Style/button.css";
 import GoogleIcon from "../image/google-icon.png";
 
 const Button = ({ propUp, propDown, onClickUp, onClickDown }) => (
-  <div>
+  <div className="btn">
     <button className="btnGreen" onClick={onClickUp}>
       {propUp}
     </button>

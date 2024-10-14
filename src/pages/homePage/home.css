@@ -1,3 +1,7 @@
+.homeBody {
+  padding: 64px 120px;
+  gap: 64px;
+}
 .header {
   height: 400px;
   color: white;
@@ -6,10 +10,12 @@
   opacity: 80%;
   padding: 82px 140px 64px;
   gap: 64px;
+  border-radius: 10px;
 }
 .blk {
   background-image: url("../../image/foto0.jpg");
   background-size: cover;
+  border-radius: 10px;
 }
 .header h1 {
   font-size: 48px;
@@ -21,4 +27,27 @@
   font-weight: 500;
   line-height: 22.4px;
   letter-spacing: 0.2px;
+}
+.header button {
+  padding: 10px 26px;
+  gap: 8px;
+  border-radius: 10px;
+}
+.back {
+  background-image: url("../../image/foto10.png");
+  background-size: cover;
+  border-radius: 10px;
+}
+.back h3 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 35.2px;
+}
+.back button {
+  background-color: #ffbd3a;
+}
+.back input {
+  padding: 8px 8px 8px 32px;
+  gap: 20px;
+  border-radius: 10px;
 }

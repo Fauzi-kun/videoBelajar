@@ -22,7 +22,7 @@ const Login = () => {
         <p>
           Kata Sandi <span>*</span>
         </p>
-        <input type="text" />
+        <input type="password" />
       </form>
       <LupaPass />
       <Button

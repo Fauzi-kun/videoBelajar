@@ -1,5 +1,6 @@
 import Header from "./header";
 import Card from "../../components/card.jsx";
+import Banner from "./banner.jsx";
 
 import foto1 from "../../image/foto1.png";
 import foto2 from "../../image/foto2.png";
@@ -26,8 +27,9 @@ import "./home.css";
 const Index = () => {
   return (
     <div>
-      <Header />
-      <div>
+      <div className="homeBody">
+        <Header />
+
         <div>
           <h3>Koleksi Video Pembelajaran Unggulan</h3>
           <p>Jelajahi Dunia Pengetahuan Melalui Pilihan Kami!</p>
@@ -48,6 +50,7 @@ const Index = () => {
         <Card foto={foto7} avatar={av7} />
         <Card foto={foto8} avatar={av8} />
         <Card foto={foto9} avatar={av9} />
+        <Banner />
       </div>
     </div>
   );
