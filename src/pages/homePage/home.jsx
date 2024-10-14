@@ -27,7 +27,7 @@ import "./home.css";
 const Index = () => {
   return (
     <div>
-      <div className="homeBody">
+      <div>
         <Header />
 
         <div>
