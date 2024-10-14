@@ -5,6 +5,7 @@
   background-color: black;
   opacity: 80%;
   padding: 82px 140px 64px;
+  gap: 64px;
 }
 .blk {
   background-image: url("../../image/foto0.jpg");
