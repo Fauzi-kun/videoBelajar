@@ -1,4 +1,4 @@
-import logo from "../image/logo.png";
+import logo from "../image/Logo.png";
 import net from "../image/network.png";
 import "./Style/footer.css";
 
