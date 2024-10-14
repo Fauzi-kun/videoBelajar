@@ -1,0 +1,18 @@
+.footer {
+  padding: 60px 120px;
+  gap: 20px;
+  border-top: 1px;
+  border-style: solid;
+  border-color: #3a35411f;
+}
+.foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.bold {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25.2px;
+  letter-spacing: 0.2px;
+}

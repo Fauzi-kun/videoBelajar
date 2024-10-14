@@ -1,6 +1,7 @@
 import Header from "./header";
 import Card from "../../components/card.jsx";
 import Banner from "./banner.jsx";
+import Footer from "../../components/footer.jsx";
 
 import foto1 from "../../image/foto1.png";
 import foto2 from "../../image/foto2.png";
@@ -52,6 +53,7 @@ const Index = () => {
         <Card foto={foto9} avatar={av9} />
         <Banner />
       </div>
+      <Footer />
     </div>
   );
 };
