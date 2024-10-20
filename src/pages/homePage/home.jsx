@@ -53,7 +53,6 @@ const Index = () => {
         <Card foto={foto9} avatar={av9} />
         <Banner />
       </div>
-      <Footer />
     </div>
   );
 };
