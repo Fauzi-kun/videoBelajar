@@ -23,12 +23,3 @@ export const postData = async (newData) => {
     console.log(err);
   }
 };
-
-export const updateData = async (updatedData) => {
-  try {
-    const response = await url.put(link, updatedData);
-    return response.data;
-  } catch (err) {
-    console.log(err);
-  }
-};
