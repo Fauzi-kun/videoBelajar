@@ -4,11 +4,11 @@ import { persist } from "zustand/middleware";
 const useStoreData = create(
   persist(
     (set) => ({
-      users: [],
+      users: {},
       currentUser: null,
       addUser: (newUser) =>
-        set((state) => ({
-          users: [newUser, ...state.users],
+        set(() => ({
+          users: [newUser],
         })),
       loginUser: (email, password) =>
         set((state) => {

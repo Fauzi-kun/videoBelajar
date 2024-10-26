@@ -7,19 +7,20 @@ import "./profil.css";
 const profil = () => {
   const navigate = useNavigate();
 
-  const [name, setName] = useState();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [noHp, setNoHp] = useState("");
 
-  const { currentUser, updateData, logOut } = useStoreData();
+  const { users, addUser, logOut } = useStoreData();
 
-  const buttonUpdate = () => {
+  const buttonUpdate = async () => {
     const updatedData = { name, email, noHp };
     if (name !== "" && email !== "" && noHp !== "") {
-      updateData(updatedData);
+      addUser(updatedData);
       setName("");
       setEmail("");
       setNoHp("");
+      console.log(response);
     } else {
       alert("Tidak boleh kosong");
     }
@@ -30,6 +31,8 @@ const profil = () => {
     logOut();
   };
 
+  console.log(users[0]);
+
   return (
     <div className="profil">
       <div>
@@ -37,27 +40,27 @@ const profil = () => {
           <img src={profile} />
         </div>
         <div>
-          <p>{currentUser.name}</p>
-          <p>{currentUser.email}</p>
+          <p>{users[0].name}</p>
+          <p>{users[0].email}</p>
           <p style={{ color: "red" }}>Ganti Foto Profil</p>
         </div>
       </div>
       <div>
         <input
           type="text"
-          placeholder={currentUser.name}
+          placeholder={users[0].name}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <input
           type="text"
-          placeholder={currentUser.email}
+          placeholder={users[0].email}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="text"
-          placeholder={currentUser.noHp}
+          placeholder={users[0].noHp}
           value={noHp}
           onChange={(e) => setNoHp(e.target.value)}
         />
@@ -65,6 +68,7 @@ const profil = () => {
       <div>
         <button onClick={buttonUpdate}>Simpan</button>
         <button onClick={buttonLogOut}>LogOut</button>
+        <button>Hapus Akun</button>
       </div>
     </div>
   );

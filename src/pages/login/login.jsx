@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getData } from "../../services/api/api";
 
 import useStoreData from "../../store/store";
 import DescForm from "../../components/DescForm";
@@ -11,21 +12,40 @@ import "../../style/container.css";
 const Login = () => {
   const navigate = useNavigate();
 
-  const loginUser = useStoreData((state) => state.loginUser);
-  const currentUser = useStoreData((state) => state.currentUser);
+  const { addUser } = useStoreData();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [data, setData] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const response = await getData();
+      setData(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const user = data.find(
+    (user) => user.email === email && user.password === password
+  );
 
   const submitLogin = () => {
-    loginUser(email, password);
-    if (!currentUser) {
+    if (typeof user !== "object") {
       alert("Email atau Password salah");
     } else {
       navigate("/home");
+      addUser(user);
     }
   };
-  const users = useStoreData((state) => state.users);
-  console.log(users);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  console.log(data);
+  console.log(user);
+
   return (
     <div className="container">
       <DescForm

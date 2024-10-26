@@ -1,10 +1,45 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useStoreData from "./store.js";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import LupaPass from "../components/LupaPass";
+import { getData, postData } from "../services/api/api.js";
 
 const DataManage = () => {
+  const [data, setData] = useState([]);
+  const fetchData = async () => {
+    try {
+      const response = await getData();
+      setData(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const postNewData = async () => {
+    try {
+      const newData = {
+        name,
+        email,
+        noHp,
+        password,
+      };
+      const response = await postData(newData);
+      setData([...data, response]);
+      setName("");
+      setEmail("");
+      setNoHp("");
+      setPassword("");
+      setConPassword("");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const navigate = useNavigate();
 
   const addUser = useStoreData((state) => state.addUser);
@@ -32,7 +67,7 @@ const DataManage = () => {
       conPassword !== ""
     ) {
       if (password === conPassword) {
-        submitAddUser();
+        postNewData();
         alert("Silahkan login");
       } else {
         alert("Konfirmasi password harus sama");
@@ -42,6 +77,7 @@ const DataManage = () => {
     }
   };
 
+  console.log(data);
   return (
     <div>
       <form action="#">
