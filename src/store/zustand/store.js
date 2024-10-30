@@ -31,6 +31,17 @@ const useStore = create(
         console.log(err);
       }
     },
+    deleteUser: async (id) => {
+      try {
+        await url.delete(`/${id}`);
+        set((state) => ({
+          data: state.data.filter((item) => item.id !== id),
+          currentUser: {},
+        }));
+      } catch (err) {
+        console.log(err);
+      }
+    },
   }))
 );
 

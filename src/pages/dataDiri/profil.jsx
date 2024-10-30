@@ -11,7 +11,7 @@ const profil = () => {
   const [email, setEmail] = useState("");
   const [noHp, setNoHp] = useState("");
 
-  const { data, currentUser, editUser, loginUser } = useStore();
+  const { data, currentUser, editUser, loginUser, deleteUser } = useStore();
 
   const buttonUpdate = () => {
     const updatedData = {
@@ -37,7 +37,12 @@ const profil = () => {
     loginUser({});
   };
 
-  console.log(data[0]);
+  const buttonDelete = () => {
+    deleteUser(currentUser.id);
+    navigate("../../../");
+  };
+
+  console.log(data);
   console.log(currentUser);
 
   return (
@@ -75,7 +80,7 @@ const profil = () => {
       <div>
         <button onClick={buttonUpdate}>Simpan</button>
         <button onClick={buttonLogOut}>LogOut</button>
-        <button>Hapus Akun</button>
+        <button onClick={buttonDelete}>Hapus Akun</button>
       </div>
     </div>
   );
