@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import useStoreData from "./store.js";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import LupaPass from "../components/LupaPass";
