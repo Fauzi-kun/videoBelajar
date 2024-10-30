@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getData } from "../../services/api/api";
+import useStore from "../../store/zustand/store.js";
 
-import useStoreData from "../../store/store";
 import DescForm from "../../components/DescForm";
 import Button from "../../components/Button";
 import LupaPass from "../../components/LupaPass";
@@ -12,19 +11,9 @@ import "../../style/container.css";
 const Login = () => {
   const navigate = useNavigate();
 
-  const { addUser } = useStoreData();
+  const { data, addData, loginUser } = useStore();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [data, setData] = useState([]);
-
-  const fetchData = async () => {
-    try {
-      const response = await getData();
-      setData(response);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   const user = data.find(
     (user) => user.email === email && user.password === password
@@ -35,12 +24,12 @@ const Login = () => {
       alert("Email atau Password salah");
     } else {
       navigate("/home");
-      addUser(user);
+      loginUser(user);
     }
   };
 
   useEffect(() => {
-    fetchData();
+    addData();
   }, []);
 
   console.log(data);

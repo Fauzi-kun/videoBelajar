@@ -3,29 +3,30 @@ import useStoreData from "./store.js";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import LupaPass from "../components/LupaPass";
-import { getData, postData } from "../services/api/api.js";
+import { postData } from "../services/api/api.js";
+import useStore from "./zustand/store.js";
 
 const DataManage = () => {
-  const [data, setData] = useState([]);
-  const fetchData = async () => {
-    try {
-      const response = await getData();
-      setData(response);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const { addData } = useStore();
+  const [newData, setNewData] = useState([]);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [noHp, setNoHp] = useState("");
+  const [password, setPassword] = useState("");
+  const [conPassword, setConPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const postNewData = async () => {
     try {
-      const newData = {
+      const newsData = {
         name,
         email,
         noHp,
         password,
       };
-      const response = await postData(newData);
-      setData([...data, response]);
+      const response = await postData(newsData);
+      setNewData([...newData, response]);
       setName("");
       setEmail("");
       setNoHp("");
@@ -36,28 +37,6 @@ const DataManage = () => {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const navigate = useNavigate();
-
-  const addUser = useStoreData((state) => state.addUser);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [noHp, setNoHp] = useState("");
-  const [password, setPassword] = useState("");
-  const [conPassword, setConPassword] = useState("");
-
-  const submitAddUser = () => {
-    const newUser = { name, email, noHp, password };
-    addUser(newUser);
-    setName("");
-    setEmail("");
-    setNoHp("");
-    setPassword("");
-    setConPassword("");
-  };
   const daftar = () => {
     if (
       name !== "" &&
@@ -76,8 +55,10 @@ const DataManage = () => {
       alert("Mohon di isi semua");
     }
   };
+  useEffect(() => {
+    addData();
+  }, [addData]);
 
-  console.log(data);
   return (
     <div>
       <form action="#">

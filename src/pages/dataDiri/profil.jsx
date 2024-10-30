@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useStoreData from "../../store/store";
+import useStore from "../../store/zustand/store.js";
 import profile from "../../image/profil.png";
 import "./profil.css";
 
@@ -11,16 +11,22 @@ const profil = () => {
   const [email, setEmail] = useState("");
   const [noHp, setNoHp] = useState("");
 
-  const { users, addUser, logOut } = useStoreData();
+  const { data, currentUser, editUser, loginUser } = useStore();
 
-  const buttonUpdate = async () => {
-    const updatedData = { name, email, noHp };
+  const buttonUpdate = () => {
+    const updatedData = {
+      name: name,
+      email: email,
+      noHp: noHp,
+      id: currentUser.id,
+      password: currentUser.password,
+    };
     if (name !== "" && email !== "" && noHp !== "") {
-      addUser(updatedData);
+      editUser(updatedData, currentUser.id);
+
       setName("");
       setEmail("");
       setNoHp("");
-      console.log(response);
     } else {
       alert("Tidak boleh kosong");
     }
@@ -28,10 +34,11 @@ const profil = () => {
 
   const buttonLogOut = () => {
     navigate("../../../");
-    logOut();
+    loginUser({});
   };
 
-  console.log(users[0]);
+  console.log(data[0]);
+  console.log(currentUser);
 
   return (
     <div className="profil">
@@ -40,27 +47,27 @@ const profil = () => {
           <img src={profile} />
         </div>
         <div>
-          <p>{users[0].name}</p>
-          <p>{users[0].email}</p>
+          <p>{currentUser.name}</p>
+          <p>{currentUser.email}</p>
           <p style={{ color: "red" }}>Ganti Foto Profil</p>
         </div>
       </div>
       <div>
         <input
           type="text"
-          placeholder={users[0].name}
+          placeholder={currentUser.name}
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
         <input
           type="text"
-          placeholder={users[0].email}
+          placeholder={currentUser.email}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="text"
-          placeholder={users[0].noHp}
+          placeholder={currentUser.noHp}
           value={noHp}
           onChange={(e) => setNoHp(e.target.value)}
         />
